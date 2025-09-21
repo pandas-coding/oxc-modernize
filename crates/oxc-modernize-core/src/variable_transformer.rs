@@ -109,6 +109,7 @@ impl<'a> VisitMut<'a> for SmartVarToLetVisitor<'a> {
 
 #[cfg(test)]
 mod tests {
+    use super::{SmartVarToLetVisitor};
     use oxc_allocator::Allocator;
     use oxc_ast_visit::VisitMut;
     use oxc_codegen::Codegen;
@@ -230,7 +231,7 @@ mod tests {
         let semantic = Semantic::default();
 
         // 使用SmartVarToLetVisitor
-        let mut visitor = super::SmartVarToLetVisitor::new(&semantic);
+        let mut visitor = SmartVarToLetVisitor::new(&semantic);
         visitor.visit_program(&mut program);
 
         // 生成转换后的代码
